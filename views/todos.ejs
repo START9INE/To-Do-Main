@@ -5,27 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+      
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
+    <header>
+        <h1>Camping Checklist</h1>
+    </header>
+    <div class="main">
+    <div class="col-1">
+    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+      <ul>
+      <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+                                
+                  <!-- Simple modal dialog containing a form -->
+                <span class='assigned'>
+                  <dialog id="favDialog">
+                    <form method="dialog">
+                      <p><label>Pick User:
+                        <select>
+                          <option value="default">Choose…</option>
+                          <% users.forEach( el => { %>   // Should there be an action here? "/todos/assignTodo"?
+                          <option data-id='<%=el._id%>'><%=el.username%></option>
+                          <% }) %>
+                        </select>                        
+                      </label></p>
+                      <div>
+                        <button value="cancel">Cancel</button>
+                        <button id="confirmBtn" value="default">Confirm</button>
+                      </div>
+                    </form>
+                  </dialog>
+                  <p>
+                    <button id="updateDetails">Update details</button>
+                  </p>
+                  <output></output>  
+                </span>
+                    
+                  <span class='del'> Delete </span>                                       // There doesn't seem to be one here
+                    
+                    
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+    <form action="/todos/createTodo" method='POST'>                                     // But there's one here for the createTodo
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>              
         <input type="submit">
     </form>
+    </div>
 
-    <a href="/logout">Logout</a>
+        <div class="col-2">
+            <img src="../assets/512px-Camping_Bag_Flat_Icon_Vector.png" alt="">
+        </div>
+    </div>
+
+
+    <footer>
+        <h4><a href="/logout">Logout</a></h4>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
