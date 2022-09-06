@@ -1,0 +1,104 @@
+/******************************************
+/* BASE STYLES
+/*******************************************/
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: rgba(12,11,8,.75);
+    background-color: #fdfaf4;
+  }
+  
+/******************************************
+/* To Do Page LAYOUT
+/*******************************************/
+header, footer {
+    width: 100%;
+    line-height: 6em;
+}
+header{
+    background-color: #455a0b;
+}
+.main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding-left: 5em;
+}
+.col-1{
+    grid-column: 1;
+    grid-row: 1;
+}
+.col-2{
+    grid-column: 2;
+    grid-row: 1;
+}
+@media (max-width: 1000px) {
+    .col-1 {
+        width: auto !important;
+    }
+    .col-2 {
+      display: none;
+    }
+  }
+h1{
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+}
+h2{
+    padding-left: 2em;
+}
+h4{
+    color: #455a0b !important;
+    padding-left: 7.25em;
+}
+.todoItem {
+    list-style-type: none;
+    border-bottom: 1px solid;
+    padding: 1.5em;
+}
+li:last-child {
+    border-bottom: none;
+}
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+.not{
+    text-decoration: underline;
+}
+.del{
+    font-size: smaller;
+    padding-left: .5em;
+}
+.del:hover{
+    font-weight: 700;
+}
+form{
+    padding-left: 2.5em;
+}
+button, .button{
+    background-color: #8fa833;
+    color: #f9f8f6;
+}
+button, .button:hover{
+    background-color: #526b0d;
+    color: #f9f8f6;
+}
+/******************************************
+/* LOGIN and SIGN UP PAGES
+/*******************************************/
+.login-view, .sign-up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    text-align: center;
+}
+.sign-in-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
