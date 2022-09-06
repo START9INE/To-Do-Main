@@ -34,7 +34,7 @@ Our primary goals are:
 
 [x] Ensured compatibility of new code with database 
 
-[] Ensured functionality of new put request function
+[ ] Ensured functionality of new put request function
 
 ---
 
