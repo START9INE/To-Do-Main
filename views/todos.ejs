@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Camping Checklist</h1>
+    </header>
+    <div class="main">
+    <div class="col-1">
+    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+      <ul>
+      <% todos.forEach( el => { %>
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                                
+                  <!-- Simple modal dialog containing a form -->
+                <span class='assigned'>
+                  <dialog id="favDialog">
+                    <form method="dialog">
+                      <p><label>Pick User:
+                        <select>
+                          <option value="default">Choose…</option>
+                          <% users.forEach( el => { %>   // Should there be an action here? "/todos/assignTodo"?
+                          <option data-id='<%=el._id%>'><%=el.username%></option>
+                          <% }) %>
+                        </select>                        
+                      </label></p>
+                      <div>
+                        <button value="cancel">Cancel</button>
+                        <button id="confirmBtn" value="default">Confirm</button>
+                      </div>
+                    </form>
+                  </dialog>
+                  <p>
+                    <button id="updateDetails">Update details</button>
+                  </p>
+                  <output></output>  
+                </span>
+                    
+                  <span class='del'> Delete </span>
+                    
+                    
+            </li>
+    <% }) %>    
+    </ul>
+
+
+    <form action="/todos/createTodo" method='POST'>                 
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="submit">
+    </form>
+    </div>
+
+        <div class="col-2">
+          <img width="512" alt="Camping Bag Flat Icon Vector" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Camping_Bag_Flat_Icon_Vector.svg/512px-Camping_Bag_Flat_Icon_Vector.svg.png">
+        </div>
+    </div>
+
+
+    <footer>
+        <h4><a href="/logout">Logout</a></h4>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
