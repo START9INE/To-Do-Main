@@ -21,13 +21,19 @@ Our primary goals are:
 # Progress Towards Objectives
 
 [x] Began the project by brainstorming our idea for added functionality and improvements.
+
 [x] Added a dropdown/dialog box to the main page, which populates with all current registered users (/todos.ejs).
+
 [x] Added an async function for a put request that allows users to to assign todo tasks, by updating the userID of a it  (assignTodo() in /main.js; controllers/todos.js)
+
 [x] Styled the app so that it's easier to use and more aesthetically pleasing.
+
 [x] Added images and styling suitable for real world use cases
 
 [x] Ensured functionality of dropdown box
+
 [x] Ensured compatibility of new code with database 
+
 [] Ensured functionality of new put request function
 
 ---
